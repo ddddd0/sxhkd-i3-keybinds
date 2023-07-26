@@ -1,0 +1,63 @@
+#terminal
+super + Return
+	alacritty
+
+#kill focused
+super + shift + q
+	bspc node focused -k
+
+#rofi
+super + d
+	rofi -show run
+
+#change focus with arrows
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+
+#change focus with i3 keybinds
+super + {j,k,l,semicolon}
+	bspc node -f {west,south,north,east}
+
+#move focused with arrows
+super + shift + {Left.Down,Up,Right}
+	bspc node -s {west,south,north,east}
+
+#move focused with i3 keybinds
+super + shift + {Left,Down,Up,Right}
+	bspc node -s {west,south,north,east}
+
+#split in horizontal (preselects)
+super + h
+	bspc node -p east
+
+#split in vertical (preselects)
+super + v
+	bspc node -p south
+
+#toggle floating
+super + shift + @space
+	bspc node -t {floating,tiled}
+
+#focus parent
+super + a
+	bspc node -f older
+
+#focus child
+#super + d
+#	bspc node -f newer
+
+#focus desktop and send programs
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#reload sxhkd config
+super + shift + c
+	pkill -USR1 -x sxhkd
+
+#reload bspwm
+super + shift + r
+	bspc wm -r
+
+#exit bspwm
+super + shift + e
+	bspc quit
